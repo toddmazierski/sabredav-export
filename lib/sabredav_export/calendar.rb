@@ -1,4 +1,4 @@
-class SabreDAVBackup
+class SabreDAVExport
   class Calendar < BaseResource
   private
 
@@ -7,7 +7,7 @@ class SabreDAVBackup
     end
 
     def url
-      File.join(SabreDAVBackup.caldav_url + "/calendars/#{@username}/#{@name}?export")
+      File.join(SabreDAVExport.caldav_url + "/calendars/#{@username}/#{@name}?export")
     end
 
     def expected_header

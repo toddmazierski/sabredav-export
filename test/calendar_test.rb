@@ -5,13 +5,13 @@ class CalendarTest < MiniTest::Unit::TestCase
     @caldav_url = 'https://example.com/cal.php'
     @auth_username = 'admin'
     @password = 'swordfish'
-    SabreDAVBackup.stubs(:caldav_url).returns(@caldav_url)
-    SabreDAVBackup.stubs(:username).returns(@auth_username)
-    SabreDAVBackup.stubs(:password).returns(@password)
+    SabreDAVExport.stubs(:caldav_url).returns(@caldav_url)
+    SabreDAVExport.stubs(:username).returns(@auth_username)
+    SabreDAVExport.stubs(:password).returns(@password)
 
     @username = 'paul'
     @name = 'excavations'
-    @calendar = SabreDAVBackup::Calendar.new(@username, @name)
+    @calendar = SabreDAVExport::Calendar.new(@username, @name)
   end
 
   def test_data

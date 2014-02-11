@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BaseResourceTest < MiniTest::Unit::TestCase
   def setup
-    @resource = SabreDAVBackup::BaseResource.new(mock, mock)
+    @resource = SabreDAVExport::BaseResource.new(mock, mock)
   end
 
   def test_save
@@ -34,7 +34,7 @@ class BaseResourceTest < MiniTest::Unit::TestCase
     @resource.expects(:expected_header).at_least_once.returns(header_1)
     @resource.expects(:actual_header).at_least_once.returns(header_2)
 
-    expected_exception = SabreDAVBackup::BaseResource::UnexpectedHeader
+    expected_exception = SabreDAVExport::BaseResource::UnexpectedHeader
     assert_raises(expected_exception) { @resource.test }
   end
 

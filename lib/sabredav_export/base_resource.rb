@@ -1,4 +1,4 @@
-class SabreDAVBackup
+class SabreDAVExport
   class BaseResource
     class UnexpectedHeader < StandardError; end
 
@@ -43,12 +43,12 @@ class SabreDAVBackup
 
     # Returns a shell-escaped copy of the username for authentication.
     def username
-      Shellwords.shellescape(SabreDAVBackup.username)
+      Shellwords.shellescape(SabreDAVExport.username)
     end
 
     # Returns a shell-escaped copy of the password for authentication.
     def password
-      Shellwords.shellescape(SabreDAVBackup.password)
+      Shellwords.shellescape(SabreDAVExport.password)
     end
 
     # Returns the header (i.e. the first line) of the resource data.

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sabredav_backup (0.0.1)
+    sabredav_export (0.0.2)
 
 GEM
   remote: http://rubygems.org/
@@ -17,4 +17,4 @@ PLATFORMS
 DEPENDENCIES
   mocha
   rake
-  sabredav_backup!
+  sabredav_export!

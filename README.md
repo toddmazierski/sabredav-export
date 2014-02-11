@@ -1,11 +1,11 @@
-# sabredav_backup
+# sabredav_export
 
-<a href='https://travis-ci.org/toddmazierski/sabredav-backup'>
-  <img src='https://api.travis-ci.org/toddmazierski/sabredav-backup.png' />
+<a href='https://travis-ci.org/toddmazierski/sabredav-export'>
+  <img src='https://api.travis-ci.org/toddmazierski/sabredav-export.png' />
 </a>
 
-<a href='https://codeclimate.com/github/toddmazierski/sabredav-backup'>
-  <img src='https://codeclimate.com/github/toddmazierski/sabredav-backup.png' />
+<a href='https://codeclimate.com/github/toddmazierski/sabredav-export'>
+  <img src='https://codeclimate.com/github/toddmazierski/sabredav-export.png' />
 </a>
 
 Saves remote [SabreDAV](http://sabredav.org/) calendars and address books to disk. Intended for use with the [Backup gem](http://meskyanichi.github.io/backup/v4/) (but it's not a requirement).
@@ -14,9 +14,9 @@ Saves remote [SabreDAV](http://sabredav.org/) calendars and address books to dis
 
   1. A SabreDAV server (tested with [Baïkal](http://baikal-server.com/))
 
-  2. For calendar backups, the [iCalendar Export Plugin](http://sabredav.org/dav/ics-export-plugin/)
+  2. For calendar exports, the [iCalendar Export Plugin](http://sabredav.org/dav/ics-export-plugin/)
 
-  3. For address book backups, the [vCard Export Plugin] (https://code.google.com/p/sabredav/wiki/VCFExportPlugin)
+  3. For address book exports, the [vCard Export Plugin] (https://code.google.com/p/sabredav/wiki/VCFExportPlugin)
 
   4. Ruby (tested with 1.9.3 and 2.1)
 
@@ -27,15 +27,15 @@ Saves remote [SabreDAV](http://sabredav.org/) calendars and address books to dis
 Please add this to your `Gemfile`:
 
 ```ruby
-gem 'sabredav_backup', :git => 'git@github.com:toddmazierski/sabredav-backup.git', :ref => 'v0.0.1'
+gem 'sabredav_export', :git => 'git@github.com:toddmazierski/sabredav-export.git', :ref => 'v0.0.2'
 ```
 
 ## Configuration
 
-To configure, pass a block to `SabreDAVBackup.config`:
+To configure, pass a block to `SabreDAVExport.config`:
 
 ```ruby
-SabreDAVBackup.config do |config|
+SabreDAVExport.config do |config|
   config.caldav_url  = 'https://example.com/cal.php'
   config.carddav_url = 'https://example.com/card.php'
   config.username    = 'admin'
@@ -49,8 +49,8 @@ Please note that the `username` in this context is for authentication purposes.
 
 ```ruby
 # Create a new instance.
-address_book = SabreDAVBackup::AddressBook.new('paul', 'geologists')
-# => #<SabreDAVBackup::AddressBook @name="geologists", @username="paul">
+address_book = SabreDAVExport::AddressBook.new('paul', 'geologists')
+# => #<SabreDAVExport::AddressBook @name="geologists", @username="paul">
 
 # Save the data to disk.
 address_book.save
@@ -88,8 +88,8 @@ In this example:
 ```ruby
 Model.new(:baikal, 'Baïkal server backups') do
   resources = [
-    SabreDAVBackup::Calendar.new('paul', 'excavations'),
-    SabreDAVBackup::AddressBook.new('paul', 'geologists')
+    SabreDAVExport::Calendar.new('paul', 'excavations'),
+    SabreDAVExport::AddressBook.new('paul', 'geologists')
   ]
 
   before do

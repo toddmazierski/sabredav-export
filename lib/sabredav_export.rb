@@ -2,7 +2,7 @@ require 'tmpdir'
 require 'shellwords'
 require 'pathname'
 
-class SabreDAVBackup
+class SabreDAVExport
   class << self
     ATTRIBUTES = :username,
                  :password,
@@ -28,6 +28,6 @@ class SabreDAVBackup
   end
 end
 
-require 'sabredav_backup/base_resource'
-require 'sabredav_backup/address_book'
-require 'sabredav_backup/calendar'
+require 'sabredav_export/base_resource'
+require 'sabredav_export/address_book'
+require 'sabredav_export/calendar'
